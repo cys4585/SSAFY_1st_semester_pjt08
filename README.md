@@ -381,3 +381,13 @@ urlpatterns = [
 
       - ![image-20210430162201719](README.assets/image-20210430162201719.png)
 
+
+
+## 4. 어려웠던 부분
+
+- foreignkey로 연결된 모델에 대한 serializer를 구현하기 어려웠다.
+  - MovieSerializer를 구현하는데 해당 movie에 대한 review 집합을 구하기 위해 `review_set = ReviewSerializer(many=True, read_only=True)`
+
+- Serializer 객체를 만들 때, instance와 data 인자가 헷갈렸다.
+  - DB에서 가져와서 JSON 데이터를 보내고자 할 때 : instance
+  - 요청으로 받은 JSON 데이터를 DB에 넣고자 할 때 : data
